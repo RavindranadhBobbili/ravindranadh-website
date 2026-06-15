@@ -1,6 +1,3 @@
-from flask import Flask, render_template_string
-
-app = Flask(__name__)
 
 HTML = """
 <!DOCTYPE html>
@@ -408,16 +405,4 @@ The content presented on this website reflects personal professional activities,
 </html>
 """
 
-@app.route("/")
-def home():
-    return render_template_string(HTML)
 
-import nest_asyncio
-nest_asyncio.apply()
-
-app.run(
-    host="127.0.0.1",
-    port=5016,
-    debug=False,
-    use_reloader=False
-)
