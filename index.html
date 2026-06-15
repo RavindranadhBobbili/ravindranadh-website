@@ -1,32 +1,423 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+HTML = """
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ravindranadh Bobbili | AI Engineer</title>
+
+<title>Ravindranadh Bobbili |  AI Engineer</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#07111f;color:white;line-height:1.6}
-header{background:linear-gradient(135deg,#051937,#004d7a,#008793,#00bf72);padding:90px 20px;text-align:center}
-header h1{font-size:52px;margin-bottom:10px}
-header h2{font-size:24px;font-weight:normal;margin-bottom:20px}
-header p{max-width:900px;margin:auto;font-size:18px}
-.btn{display:inline-block;padding:12px 22px;background:#00d4ff;color:#00111f;text-decoration:none;border-radius:8px;margin:10px;font-weight:bold}
-nav{background:#0b1728;padding:15px;text-align:center}
-nav a{color:#caf0f8;text-decoration:none;margin:0 15px;font-weight:bold}
-section{max-width:1200px;margin:auto;padding:60px 20px}
-h2{margin-bottom:20px;color:#00d4ff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.card{background:#101c2e;padding:25px;border-radius:15px;border:1px solid #263850}
-.tag{display:inline-block;background:#073b73;padding:6px 12px;border-radius:20px;margin:5px;font-size:14px}
-footer{background:#020814;padding:30px;text-align:center;color:#9fb3c8}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#07111f;
+color:white;
+line-height:1.6;
+}
+
+header{
+background:linear-gradient(135deg,#051937,#004d7a,#008793,#00bf72);
+padding:90px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:52px;
+margin-bottom:10px;
+}
+
+header h2{
+font-size:24px;
+font-weight:normal;
+margin-bottom:20px;
+}
+
+header p{
+max-width:900px;
+margin:auto;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 22px;
+background:#00d4ff;
+color:#00111f;
+text-decoration:none;
+border-radius:8px;
+margin:10px;
+font-weight:bold;
+}
+
+nav{
+background:#0b1728;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:#caf0f8;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+
+section{
+max-width:1200px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+margin-bottom:20px;
+color:#00d4ff;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#101c2e;
+padding:25px;
+border-radius:15px;
+border:1px solid #263850;
+}
+
+.card:hover{
+border-color:#00d4ff;
+}
+
+.card h3{
+color:#90e0ef;
+margin-bottom:10px;
+}
+
+.tag{
+display:inline-block;
+background:#073b73;
+padding:6px 12px;
+border-radius:20px;
+margin:5px;
+font-size:14px;
+}
+
+.github-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 15px;
+background:#00d4ff;
+color:#00111f;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+
+footer{
+background:#020814;
+padding:30px;
+text-align:center;
+color:#9fb3c8;
+}
+
 </style>
 </head>
+
 <body>
+
 <header>
+
 <h1>Ravindranadh Bobbili</h1>
-<h2>AI Engineer | Applied AI Scientist | GenAI & RAG Architect</h2>
-<p>Building deployable AI systems across Scientific AI, Agentic AI, RAG, Materials Informatics and Engineering Intelligence.</p>
+
+<h2>
+AI Engineer |
+Applied AI Scientist |
+GenAI & RAG Architect
+</h2>
+
+<p>
+Building Scientific AI, Agentic AI,
+Retrieval-Augmented Generation (RAG),
+Engineering Intelligence,
+Materials Informatics,
+and Advanced Manufacturing AI Solutions.
+</p>
+
+<br>
+
+<a class="btn" href="#projects">
+View Projects
+</a>
+
+<a class="btn"
+href="https://github.com/RavindranadhBobbili"
+target="_blank">
+GitHub
+</a>
+
 </header>
+
+<nav>
+
+<a href="#about">About</a>
+
+<a href="#expertise">Expertise</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#research">Research</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<section id="about">
+
+<h2>About</h2>
+
+<p>
+
+I am an AI Engineer and Applied AI Scientist specializing in Artificial Intelligence, Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), Agentic AI Systems, Scientific AI, Materials Informatics, and Engineering Intelligence.
+
+</p>
+
+<br>
+
+<p>
+
+My work focuses on transforming scientific literature, engineering data, and domain knowledge into deployable AI systems that support materials discovery, fatigue prediction, advanced manufacturing, engineering analytics, and scientific decision-making.
+
+</p>
+
+</section>
+
+<section id="expertise">
+
+<h2>Featured Expertise</h2>
+
+<span class="tag">Artificial Intelligence</span>
+
+<span class="tag">Machine Learning</span>
+
+<span class="tag">Deep Learning</span>
+
+<span class="tag">Generative AI</span>
+
+<span class="tag">Large Language Models</span>
+
+<span class="tag">Agentic AI</span>
+
+<span class="tag">RAG Systems</span>
+
+<span class="tag">Scientific AI</span>
+
+<span class="tag">Materials Informatics</span>
+
+<span class="tag">Engineering Intelligence</span>
+
+<span class="tag">FastAPI</span>
+
+<span class="tag">Python</span>
+
+<span class="tag">Docker</span>
+
+<span class="tag">AWS</span>
+
+<span class="tag">MLOps</span>
+
+<span class="tag">LLMOps</span>
+
+</section>
+
+<section id="projects">
+
+<h2>Flagship AI Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>MaterialsGPT</h3>
+
+<p>
+Scientific AI platform for materials discovery,
+literature intelligence,
+property prediction,
+and engineering decision support.
+</p>
+
+<a class="github-btn"
+href="https://github.com/RavindranadhBobbili/Materials-Literature-Intelligence-Platform-using-RAG-LLMs-PDF-extraction-monitoring-and-deployment."
+target="_blank">
+View GitHub
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>AeroEngine FatigueGPT</h3>
+
+<p>
+AI platform for fatigue-life prediction,
+reliability analytics,
+S-N curve intelligence,
+and aerospace alloy assessment.
+</p>
+
+<a class="github-btn"
+href="https://github.com/RavindranadhBobbili/Live-Literature-Fatigue-Life-Estimation-Platform-Titanium-Alloys-Nickel-Cobalt-Superalloys-EXCELLENT"
+target="_blank">
+View GitHub
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Enterprise Agentic AI Platform</h3>
+
+<p>
+Production-oriented multi-agent AI platform
+with planning,
+retrieval,
+evaluation,
+monitoring,
+and grounded responses.
+</p>
+
+<a class="github-btn"
+href="https://github.com/RavindranadhBobbili/Production-grade-Enterprise-AI-platform-with-FastAPI-PDF-TXT-parsing-multi-domain-RAG-OpenAI-Ollama"
+target="_blank">
+View GitHub
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Scientific RAG Platform</h3>
+
+<p>
+Citation-grounded scientific retrieval system
+for PDF intelligence,
+hybrid retrieval,
+and knowledge reasoning.
+</p>
+
+<a class="github-btn"
+href="https://github.com/RavindranadhBobbili/Production-RAG-System-with-RAG-Evaluation-Hallucination-Detection-and-Observability"
+target="_blank">
+View GitHub
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="research">
+
+<h2>Research & Technical Leadership</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Publications</h3>
+<p>30+ Peer-Reviewed Publications</p>
+</div>
+
+<div class="card">
+<h3>Citations</h3>
+<p>1400+ Citations | h-index 22</p>
+</div>
+
+<div class="card">
+<h3>Research Areas</h3>
+<p>
+Scientific AI,
+Materials Informatics,
+Fatigue Prediction,
+Engineering Analytics,
+Advanced Manufacturing AI
+</p>
+</div>
+
+</div>
+
+<section id="contact">
+    <div class="contact-box">
+        <h2>Contact</h2>
+
+        <p>
+            Email:
+            <a href="mailto:ravindranadhbobbili@gmail.com">
+                ravindranadhbobbili@gmail.com
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a target="_blank" href="https://linkedin.com/in/ravindranadh-bobbili-768ab91a7">
+                linkedin.com/in/ravindranadh-bobbili-768ab91a7
+            </a>
+        </p>
+
+        <p>
+            GitHub:
+            <a target="_blank" href="https://github.com/RavindranadhBobbili">
+                github.com/RavindranadhBobbili
+            </a>
+        </p>
+
+        <p>
+            Google Scholar:
+            <a target="_blank" href="https://scholar.google.com/citations?user=7PQdPDQAAAAJ">
+                Google Scholar Profile
+            </a>
+        </p>
+    </div>
+</section>
+<footer>
+
+© 2026 Ravindranadh Bobbili
+
+<br><br>
+
+The content presented on this website reflects personal professional activities, publications, research interests, and publicly available projects.
+
+</footer>
+
 </body>
 </html>
+"""
+
+@app.route("/")
+def home():
+    return render_template_string(HTML)
+
+import nest_asyncio
+nest_asyncio.apply()
+
+app.run(
+    host="127.0.0.1",
+    port=5016,
+    debug=False,
+    use_reloader=False
+)
